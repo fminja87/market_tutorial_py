@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Item | Page
+{% endblock %}
+
+{% block content %}
+
+    <table class="table table-borderless">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Option</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in items %}
+                {% include 'main/includes/item_modal.html' %}
+            <tr>
+                <th scope="row">{{ item.pk }}</th>
+                <td>{{ item.name }}</td>
+                <td>
+                    <img src="{{ item.image_url }}" style="width: 64px">
+                </td>
+                <td>
+                    <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#modal_info{{ item.pk }}"> More Info</button>
+                    <button class="btn btn-outline-dark btn-sm" data-toggle="modal" data-target="#modal_purchase{{ item.pk }}"> Purchase</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

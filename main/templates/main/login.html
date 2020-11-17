@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Login | Page
+{% endblock %}
+
+{% block content %}
+    <br/>
+
+            <form action="{% url 'login' %}" method="POST" style="border:1px solid #ccc">
+            {% csrf_token %}
+                <div class="container">
+                    <h1 class="text-center">Sign In</h1>
+                    <p class="text-center">Please fill in this form to login in your account.</p>
+                    <hr>
+
+                    <label for="email"><b>User Name</b></label>
+                    <input type="text" class="form-control" placeholder="Enter User Name" name="username">
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" class="form-control" placeholder="Enter Password" name="password">
+
+                    <p class="text-center">
+                       Don't have an account? <a href="{% url 'register' %}">Register</a>
+                    </p>
+
+                    <div class="clearfix">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm">Login</button>
+                    </div>
+                </div>
+            </form>
+{% endblock %}

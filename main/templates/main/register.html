@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+    Register | Page
+{% endblock %}
+
+{% block content %}
+    <br/>
+
+            <form action="{% url 'register' %}" method="POST" style="border:1px solid #ccc">
+            {% csrf_token %}
+                <div class="container">
+                    <h1 class="text-center">Sign Up</h1>
+                    <p class="text-center">Please fill in this form to create an account.</p>
+                    <hr>
+
+                    <label for="email"><b>User Name</b></label>
+                    <input type="text" class="form-control" placeholder="Enter User Name" name="username">
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" class="form-control" placeholder="Enter Password" name="password1" >
+
+                    <label for="psw-repeat"><b>Confirm Password</b></label>
+                    <input type="password" class="form-control" placeholder="Confirm Password" name="password2" >
+
+
+                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.
+                    </p>
+
+                    <p class="text-center">
+                        Already have an account? <a href="{% url 'login' %}">Login</a>
+                    </p>
+
+                    <div class="clearfix">
+                        <button type="submit" class="btn btn-primary btn-block btn-sm">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+{% endblock %}
